@@ -1,0 +1,76 @@
+Artist Service - Complete Project Structure
+=============================================
+
+📁 artist-service/
+├── 📄 pom.xml
+├── 📄 Dockerfile
+├── 📄 README.md
+├── 📄 .gitignore
+│
+├── 📁 src/main/java/com/revplay/artist/
+│   │
+│   ├── 📄 ArtistServiceApplication.java (Main Application)
+│   │
+│   ├── 📁 entity/ (4 files)
+│   │   ├── Artist.java
+│   │   ├── Song.java
+│   │   ├── Album.java
+│   │   └── Visibility.java (Enum: PUBLIC, UNLISTED)
+│   │
+│   ├── 📁 dto/ (7 files)
+│   │   ├── ArtistProfileRequest.java
+│   │   ├── ArtistProfileResponse.java
+│   │   ├── SongUploadRequest.java
+│   │   ├── SongUpdateRequest.java
+│   │   ├── SongResponse.java
+│   │   ├── AlbumRequest.java
+│   │   └── AlbumResponse.java
+│   │
+│   ├── 📁 repository/ (3 files)
+│   │   ├── ArtistRepository.java
+│   │   ├── SongRepository.java
+│   │   └── AlbumRepository.java
+│   │
+│   ├── 📁 service/ (3 files)
+│   │   ├── ArtistService.java
+│   │   ├── SongService.java
+│   │   └── AlbumService.java
+│   │
+│   ├── 📁 controller/ (4 files)
+│   │   ├── ArtistController.java
+│   │   ├── SongController.java
+│   │   ├── AlbumController.java
+│   │   └── InternalController.java
+│   │
+│   ├── 📁 config/ (1 file)
+│   │   └── SecurityConfig.java
+│   │
+│   └── 📁 exception/ (3 files)
+│       ├── ResourceNotFoundException.java
+│       ├── UnauthorizedException.java
+│       └── GlobalExceptionHandler.java
+│
+└── 📁 src/main/resources/
+    └── 📄 application.yml
+
+TOTAL: 26 Java files + 4 configuration files = 30 files
+
+Key Features:
+=============
+✓ Artist Profile Management
+✓ Song Upload & Management
+✓ Album Creation & Organization
+✓ Visibility Control (PUBLIC/UNLISTED)
+✓ Play Count Tracking
+✓ Internal APIs for other services
+✓ Manual Builder Pattern (No Lombok)
+✓ Jakarta Validation
+✓ Spring Security with Header-based Auth
+✓ Eureka Service Discovery
+✓ H2 Database
+✓ Docker Support
+✓ Comprehensive Exception Handling
+
+Port: 8083
+Service Name: artist-service
+Owner: Srinivas

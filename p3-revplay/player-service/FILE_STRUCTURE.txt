@@ -1,0 +1,161 @@
+PLAYER-SERVICE FILE STRUCTURE
+==============================
+
+Root Files:
+-----------
+├── Dockerfile
+├── pom.xml
+├── README.md
+├── SERVICE_SUMMARY.md
+├── .gitignore
+└── FILE_STRUCTURE.txt (this file)
+
+Source Code Structure:
+---------------------
+src/main/
+├── java/com/revplay/player/
+│   ├── PlayerServiceApplication.java (Main Application)
+│   │
+│   ├── client/
+│   │   └── ArtistServiceClient.java
+│   │
+│   ├── config/
+│   │   ├── FeignConfig.java
+│   │   └── SecurityConfig.java
+│   │
+│   ├── controller/
+│   │   ├── InternalController.java
+│   │   ├── ListeningHistoryController.java
+│   │   └── PlayerController.java
+│   │
+│   ├── dto/
+│   │   ├── ListeningHistoryResponse.java
+│   │   ├── NowPlayingResponse.java
+│   │   ├── PlayRequest.java
+│   │   ├── PlayResponse.java
+│   │   ├── SongDto.java
+│   │   └── UserHistoryStatsResponse.java
+│   │
+│   ├── entity/
+│   │   └── ListeningHistory.java
+│   │
+│   ├── exception/
+│   │   ├── GlobalExceptionHandler.java
+│   │   └── ResourceNotFoundException.java
+│   │
+│   ├── repository/
+│   │   └── ListeningHistoryRepository.java
+│   │
+│   └── service/
+│       ├── ListeningHistoryService.java
+│       └── PlayerService.java
+│
+└── resources/
+    └── application.yml
+
+Package Summary:
+---------------
+- Main Application: 1 class
+- Client: 1 class
+- Config: 2 classes
+- Controller: 3 classes
+- DTO: 6 classes
+- Entity: 1 class
+- Exception: 2 classes
+- Repository: 1 interface
+- Service: 2 classes
+
+Total Java Classes: 19
+Total Files: 25
+
+Key Features by Package:
+-----------------------
+CLIENT:
+  - Feign client for artist-service integration
+  - Get song details
+  - Increment play counts
+
+CONFIG:
+  - Spring Security configuration
+  - Feign client configuration
+
+CONTROLLER:
+  - Player endpoints (play music, update duration, now playing)
+  - History endpoints (recent history, clear, stats, top songs)
+  - Internal endpoints (analytics support)
+
+DTO:
+  - Request/Response objects for all endpoints
+  - User statistics
+  - Song metadata
+
+ENTITY:
+  - ListeningHistory (tracks user play events)
+
+EXCEPTION:
+  - Custom exceptions
+  - Global error handling
+
+REPOSITORY:
+  - JPA repository with custom queries
+  - Aggregations for analytics
+  - Date range queries
+
+SERVICE:
+  - PlayerService (play operations)
+  - ListeningHistoryService (history management)
+  - Circuit breaker integration
+  - Business logic
+
+Database Schema:
+---------------
+listening_history:
+  - id (Long, Primary Key)
+  - user_id (Long, Not Null)
+  - song_id (Long, Not Null)
+  - played_at (LocalDateTime, Not Null)
+  - duration (Integer, Not Null)
+
+API Endpoints:
+-------------
+Player Controller (/api/player):
+  POST   /api/player/play
+  PUT    /api/player/play/{historyId}/duration
+  GET    /api/player/now-playing
+
+History Controller (/api/history):
+  GET    /api/history/recent
+  DELETE /api/history
+  GET    /api/history/stats
+  GET    /api/history/top-songs
+
+Internal Controller (/api/internal/history):
+  GET    /api/internal/history/user/{userId}
+  GET    /api/internal/history/song/{songId}
+  GET    /api/internal/history/artist/{artistId}/listeners
+  GET    /api/internal/history/trends
+
+Dependencies:
+------------
+- Spring Boot 3.2.0
+- Spring Cloud 2023.0.0
+- Java 17
+- H2 Database
+- Eureka Client
+- OpenFeign
+- Resilience4j 2.1.0
+- Spring Security
+- Spring Data JPA
+- Jakarta Validation
+- Spring Boot Actuator
+
+Configuration:
+-------------
+Port: 8085
+Service Name: player-service
+Database: H2 (in-memory)
+Eureka: http://localhost:8761/eureka/
+
+Built with: Manual Builder Pattern (No Lombok)
+Validation: Jakarta Validation annotations
+Security: X-User-Id header for user identification
