@@ -1,0 +1,23 @@
+# Build stage
+FROM maven:3.9.4-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Run stage
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/product-service-1.0.0.jar app.jar
+
+# Environment variables
+ENV JAVA_OPTS="-Xmx512m -Xms256m"
+ENV SERVER_PORT=8082
+ENV DB_URL=jdbc:mysql://mysql:3306/revshop_products?createDatabaseIfNotExist=true
+ENV DB_USERNAME=root
+ENV DB_PASSWORD=root
+ENV EUREKA_SERVER=http://eureka-server:8761/eureka/
+
+EXPOSE 8082
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
