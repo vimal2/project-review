@@ -1,0 +1,84 @@
+<section class="ui-page">
+  <div class="ui-card artist-profile-card">
+    <h2 class="ui-title">Artist Profile</h2>
+    <p class="ui-subtitle">Keep your artist details up to date.</p>
+
+    <div *ngIf="!profileData" class="empty-state">
+      <h3>No profile found.</h3>
+      <p>Please complete your artist registration.</p>
+    </div>
+
+    <div *ngIf="profileData">
+      <div *ngIf="!isEditMode">
+        <div class="info-grid">
+          <p><strong>Name:</strong> {{ profileData.artistName }}</p>
+          <p><strong>Genre:</strong> {{ profileData.genre }}</p>
+          <p class="info-full"><strong>Bio:</strong> {{ profileData.bio }}</p>
+        </div>
+
+        <h3>Social Links</h3>
+        <div class="info-grid">
+          <p><strong>Instagram:</strong> {{ profileData.instagramLink }}</p>
+          <p><strong>Twitter:</strong> {{ profileData.twitterLink }}</p>
+          <p><strong>YouTube:</strong> {{ profileData.youtubeLink }}</p>
+          <p><strong>Website:</strong> {{ profileData.websiteLink }}</p>
+        </div>
+
+        <div class="ui-actions">
+          <button type="button" (click)="enableEdit()">Edit Profile</button>
+          <button type="button" class="ui-btn-secondary" (click)="logout()">Logout</button>
+        </div>
+      </div>
+
+      <div *ngIf="isEditMode">
+        <form class="ui-form" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+          <div class="ui-field">
+            <label>Artist Name:</label>
+            <input type="text" formControlName="artistName" />
+          </div>
+
+          <div class="ui-field">
+            <label>Bio:</label>
+            <textarea formControlName="bio"></textarea>
+          </div>
+
+          <div class="ui-field">
+            <label>Genre:</label>
+            <input type="text" formControlName="genre" />
+          </div>
+
+          <h3>Social Links</h3>
+
+          <div class="ui-field">
+            <label>Instagram:</label>
+            <input type="text" formControlName="instagramLink" />
+          </div>
+
+          <div class="ui-field">
+            <label>Twitter:</label>
+            <input type="text" formControlName="twitterLink" />
+          </div>
+
+          <div class="ui-field">
+            <label>YouTube:</label>
+            <input type="text" formControlName="youtubeLink" />
+          </div>
+
+          <div class="ui-field">
+            <label>Website:</label>
+            <input type="text" formControlName="websiteLink" />
+          </div>
+
+          <div class="ui-actions">
+            <button type="submit">Update</button>
+            <button type="button" class="ui-btn-secondary" (click)="cancelEdit()">Cancel</button>
+            <button type="button" class="ui-btn-secondary" (click)="logout()">Logout</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr />
+    <a class="ui-link" routerLink="/artist">Back to Dashboard</a>
+  </div>
+</section>

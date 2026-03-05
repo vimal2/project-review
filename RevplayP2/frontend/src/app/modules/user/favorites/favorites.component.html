@@ -1,0 +1,21 @@
+<h2>My Favorites</h2>
+
+<div *ngIf="favorites.length === 0" class="card">
+  <p>No favorites yet.</p>
+</div>
+
+<div *ngFor="let song of favorites" class="card favorite-row">
+  <div class="song-main">
+    <p class="song-title">{{ song.title }}</p>
+    <p class="song-artist">{{ song.artist }}</p>
+  </div>
+  <button
+    type="button"
+    class="favorite-toggle favorite-on"
+    (click)="remove(song.id)"
+    aria-label="Remove from favorites">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A4.5 4.5 0 0 1 6.5 4C8.24 4 9.91 4.81 11 6.08 12.09 4.81 13.76 4 15.5 4A4.5 4.5 0 0 1 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+    </svg>
+  </button>
+</div>

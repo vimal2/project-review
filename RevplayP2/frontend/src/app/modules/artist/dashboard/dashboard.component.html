@@ -1,0 +1,81 @@
+<div class="dashboard-container">
+  <h2 class="dashboard-title">Artist Dashboard</h2>
+
+  <div class="dashboard-nav">
+    <a routerLink="/artist/profile">Profile</a>
+    <a routerLink="/artist/upload-song">Upload Song</a>
+    <a routerLink="/artist/my-songs">My Songs</a>
+    <a routerLink="/artist/manage-albums">Manage Albums</a>
+    <a routerLink="/artist/dashboard">Performance Insights</a>
+  </div>
+
+  <div class="dashboard-card">
+    <h3>Overview</h3>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3>{{ overview?.totalSongs ?? 0 }}</h3>
+        <p>Total Songs</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>{{ overview?.totalPlays ?? 0 }}</h3>
+        <p>Total Plays</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>{{ overview?.totalFavorites ?? 0 }}</h3>
+        <p>Total Favorites</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-card">
+    <h4>Song Performance</h4>
+    <table>
+      <tr>
+        <th>Song</th>
+        <th>Plays</th>
+        <th>Favorites</th>
+      </tr>
+      <tr *ngFor="let song of songs">
+        <td>{{ song.title }}</td>
+        <td>{{ song.playCount }}</td>
+        <td>{{ song.favoriteCount }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="dashboard-card">
+    <h4>Top Songs</h4>
+    <ol>
+      <li *ngFor="let song of topSongs">
+        {{ song.title }} ({{ song.playCount }})
+      </li>
+    </ol>
+  </div>
+
+  <div class="dashboard-card">
+    <h4>Listening Trends</h4>
+    <label for="trendType">View:</label>
+    <select id="trendType" [value]="trendType" (change)="onTrendTypeChange($any($event.target).value)">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+    <ul class="trend-list">
+      <li *ngFor="let trend of trends">
+        {{ trend.label }}: {{ trend.count }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="dashboard-card">
+    <h4>Top Listeners</h4>
+    <ol>
+      <li *ngFor="let listener of topListeners">
+        {{ listener.listenerName }} ({{ listener.listenCount }} listens)
+      </li>
+    </ol>
+  </div>
+</div>

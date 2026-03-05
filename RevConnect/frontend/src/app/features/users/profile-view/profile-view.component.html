@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+  <!-- Navigate -->
+  <button class="btn btn-primary mb-3"
+          (click)="goToProfile(userId)">
+    Go to Profile
+  </button>
+
+  <!-- Success Message -->
+  <div class="alert alert-success" *ngIf="saved">
+    Profile saved successfully!
+  </div>
+
+  <!-- Error Message -->
+  <div class="alert alert-danger" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <!-- Profile Info -->
+  <h3>{{ profile.name }}</h3>
+  <p>{{ profile.bio }}</p>
+
+  <!-- Form -->
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Name</label>
+      <input class="form-control" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label>Bio</label>
+      <textarea class="form-control" formControlName="bio"></textarea>
+    </div>
+
+    <button class="btn btn-success" type="submit">
+      Save
+    </button>
+  </form>
+
+  <!-- Business / Creator Section -->
+  <ng-container *ngIf="isBusinessOrCreator">
+    <hr>
+    <h5>Business / Creator Section</h5>
+    <p>Visible only for Business or Creator users.</p>
+  </ng-container>
+
+</div>

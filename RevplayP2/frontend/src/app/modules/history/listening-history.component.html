@@ -1,0 +1,27 @@
+<section class="ui-page">
+  <div class="ui-card history-container">
+    <div class="history-header">
+      <div>
+        <h2 class="ui-title">Recently Played</h2>
+        <p class="ui-subtitle">Last 50 songs from your listening history.</p>
+      </div>
+      <button type="button" class="ui-btn-secondary" (click)="clearHistory()" [disabled]="historyItems.length === 0 || loading">
+        Clear History
+      </button>
+    </div>
+
+    <p *ngIf="loading" class="empty-state">Loading history...</p>
+    <p *ngIf="!loading && errorMessage" class="ui-message ui-message-error">{{ errorMessage }}</p>
+    <p *ngIf="!loading && !errorMessage && historyItems.length === 0" class="empty-state">No listening history yet.</p>
+
+    <ul *ngIf="!loading && historyItems.length > 0" class="history-list">
+      <li *ngFor="let item of historyItems; trackBy: trackByHistoryId">
+        <div class="song-meta">
+          <strong>{{ item.songTitle }}</strong>
+          <span>{{ item.playedAt | date: 'medium' }}</span>
+        </div>
+        <a class="ui-link" [routerLink]="['/player']" [queryParams]="{ songId: item.songId }">Play Again</a>
+      </li>
+    </ul>
+  </div>
+</section>

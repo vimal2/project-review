@@ -1,0 +1,85 @@
+<section class="ui-page albums-page">
+  <div class="ui-card albums-header">
+    <h2 class="ui-title">Manage Albums</h2>
+    <p class="ui-subtitle">Create albums and organize songs.</p>
+
+    <form class="ui-form album-form" [formGroup]="albumForm" (ngSubmit)="createAlbum()">
+      <div class="ui-field field-name">
+        <label>Album Name</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div class="ui-field field-desc">
+        <label>Description</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+
+      <div class="ui-field field-date">
+        <label>Release Date</label>
+        <input type="date" formControlName="releaseDate" />
+      </div>
+    </form>
+
+    <div class="header-actions">
+      <div class="ui-actions">
+        <button type="submit" (click)="createAlbum()">Create Album</button>
+      </div>
+      <a class="ui-link" routerLink="/artist">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <div *ngFor="let album of albums" class="ui-card album-card">
+    <div class="album-header">
+      <div class="album-main">
+        <h3>{{ album.name }}</h3>
+        <p>{{ album.description || 'No description' }}</p>
+        <span class="meta-pill">Release: {{ album.releaseDate }}</span>
+      </div>
+
+      <div class="ui-actions">
+        <button type="button" (click)="startAlbumEdit(album)">Edit</button>
+        <button type="button" class="ui-btn-danger" (click)="deleteAlbum(album.id)">Delete Album</button>
+      </div>
+    </div>
+
+    <div *ngIf="editingAlbumId === album.id" class="edit-panel">
+      <div class="ui-form">
+        <div class="ui-field">
+          <label>Name</label>
+          <input [(ngModel)]="albumEditForm.name" />
+        </div>
+        <div class="ui-field">
+          <label>Description</label>
+          <input [(ngModel)]="albumEditForm.description" />
+        </div>
+        <div class="ui-field">
+          <label>Release Date</label>
+          <input [(ngModel)]="albumEditForm.releaseDate" type="date" />
+        </div>
+      </div>
+      <div class="ui-actions">
+        <button type="button" (click)="updateAlbum(album.id)">Save</button>
+      </div>
+    </div>
+
+    <div class="songs-section">
+      <h4>In This Album</h4>
+      <div *ngFor="let song of songs">
+        <div *ngIf="song.albumId === album.id" class="song-row">
+          <span>{{ song.title }}</span>
+          <button type="button" class="ui-btn-secondary" (click)="removeFromAlbum(song.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="songs-section">
+      <h4>Available Songs</h4>
+      <div *ngFor="let song of songs">
+        <div *ngIf="song.albumId !== album.id" class="song-row">
+          <span>{{ song.title }}</span>
+          <button type="button" (click)="addToAlbum(song.id, album.id)">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

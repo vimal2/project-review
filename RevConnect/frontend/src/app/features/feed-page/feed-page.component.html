@@ -1,0 +1,119 @@
+<div class="container py-4">
+  <div class="row">
+
+    <!-- Left Sidebar -->
+    <div class="col-md-3 d-none d-md-block">
+      <div class="card mb-3">
+        <div class="card-body text-center">
+          <div class="rounded-circle bg-primary text-white d-flex align-items-center
+                      justify-content-center mx-auto mb-2"
+               style="width:60px;height:60px;font-size:24px;">
+            👤
+          </div>
+          <a [routerLink]="['/profile', currentUserId]" class="fw-bold text-decoration-none">
+            My Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <nav class="nav flex-column gap-2">
+            <a routerLink="/feed" class="nav-link px-0 py-1">🏠 Home Feed</a>
+            <a routerLink="/network" class="nav-link px-0 py-1">👥 My Network</a>
+            <a routerLink="/notifications" class="nav-link px-0 py-1">🔔 Notifications</a>
+            <a routerLink="/posts/trending" class="nav-link px-0 py-1">🔥 Trending</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Feed -->
+    <div class="col-md-6">
+
+      <!-- 🔍 Search People -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search people..."
+              [(ngModel)]="searchQuery"
+            />
+            <button class="btn btn-primary" (click)="searchUsers()">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 👥 Search Results -->
+      <div class="card mb-3 shadow-sm" *ngIf="users.length > 0">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Search Results</h6>
+
+          <div *ngFor="let user of users" class="d-flex align-items-center mb-2">
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center
+                        justify-content-center me-3"
+                 style="width:40px;height:40px;">
+              👤
+            </div>
+            <div>
+              <a [routerLink]="['/profile', user.id]" class="fw-bold text-decoration-none">
+                {{ user.fullName || user.username }}
+              </a>
+              <div class="text-muted small">@{{ user.username }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Post -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Create Post</h6>
+          <textarea class="form-control mb-2"
+                    rows="3"
+                    [(ngModel)]="newPostContent"
+                    placeholder="What's on your mind?"></textarea>
+
+          <input type="text"
+                 class="form-control mb-2"
+                 [(ngModel)]="newPostHashtags"
+                 placeholder="Add hashtags (e.g. #tech #coding)" />
+
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-primary"
+                    (click)="createPost()"
+                    [disabled]="!newPostContent.trim() || creatingPost">
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts -->
+      <div class="card mb-3 shadow-sm" *ngFor="let post of posts">
+        <div class="card-body">
+          <p class="fw-bold">{{ post.author.fullName || post.author.username }}</p>
+          <p>{{ post.content }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="col-md-3 d-none d-md-block">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">🔥 Trending</h6>
+          <a routerLink="/posts/trending"
+             class="btn btn-outline-secondary btn-sm w-100">
+            View Trending Posts
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

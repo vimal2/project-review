@@ -1,0 +1,10 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/target
+
+# Runtime logs
+backend-run.log
+
+# Local backup artifacts
+backup/

@@ -1,0 +1,49 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-02-26T11:16:55.630+05:30  INFO 23584 --- [           main] com.revplay.BackendApplication           : Starting BackendApplication using Java 17.0.1 with PID 23584 (C:\Users\madhu\RevplayP2\backend\target\classes started by madhu in C:\Users\madhu\RevplayP2\backend)
+2026-02-26T11:16:55.636+05:30  INFO 23584 --- [           main] com.revplay.BackendApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-02-26T11:16:56.316+05:30  INFO 23584 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26T11:16:56.388+05:30  INFO 23584 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 4 JPA repository interfaces.
+2026-02-26T11:16:56.988+05:30  INFO 23584 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-02-26T11:16:57.002+05:30  INFO 23584 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-26T11:16:57.002+05:30  INFO 23584 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-02-26T11:16:57.078+05:30  INFO 23584 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-26T11:16:57.079+05:30  INFO 23584 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1401 ms
+2026-02-26T11:16:57.290+05:30  INFO 23584 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26T11:16:57.373+05:30  INFO 23584 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-02-26T11:16:57.413+05:30  INFO 23584 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-26T11:16:57.664+05:30  INFO 23584 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26T11:16:57.703+05:30  INFO 23584 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-26T11:16:57.916+05:30  INFO 23584 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@e01a26b
+2026-02-26T11:16:57.919+05:30  INFO 23584 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-26T11:16:58.006+05:30  WARN 23584 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 11.2.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2026-02-26T11:16:58.011+05:30  WARN 23584 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26T11:16:59.161+05:30  INFO 23584 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26T11:16:59.346+05:30  INFO 23584 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T11:16:59.787+05:30  WARN 23584 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26T11:17:00.016+05:30  INFO 23584 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e9ea888, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24f8707c, org.springframework.security.web.context.SecurityContextHolderFilter@1f39b3ba, org.springframework.security.web.header.HeaderWriterFilter@7a0df38e, org.springframework.web.filter.CorsFilter@7e4a6afd, org.springframework.security.web.authentication.logout.LogoutFilter@65192f16, com.revplay.config.JwtAuthenticationFilter@22349ad3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34f2d3a6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3da701a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c7aac7c, org.springframework.security.web.session.SessionManagementFilter@d082916, org.springframework.security.web.access.ExceptionTranslationFilter@35bb3fea, org.springframework.security.web.access.intercept.AuthorizationFilter@6e669b5c]
+2026-02-26T11:17:00.220+05:30  INFO 23584 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2026-02-26T11:17:00.228+05:30  INFO 23584 --- [           main] com.revplay.BackendApplication           : Started BackendApplication in 4.997 seconds (process running for 5.373)
+2026-02-26T11:17:12.290+05:30  INFO 23584 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26T11:17:12.291+05:30  INFO 23584 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-26T11:17:12.292+05:30  INFO 23584 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select count(u1_0.id) from users u1_0 where u1_0.username=?
+Hibernate: select count(u1_0.id) from users u1_0 where u1_0.email=?
+Hibernate: select user_seq.nextval from dual
+2026-02-26T11:17:12.634+05:30  WARN 23584 --- [nio-8082-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 2289, SQLState: 42000
+2026-02-26T11:17:12.635+05:30 ERROR 23584 --- [nio-8082-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ORA-02289: sequence does not exist
+
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.5:run (default-cli) on project backend: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

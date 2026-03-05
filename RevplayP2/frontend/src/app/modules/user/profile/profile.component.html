@@ -1,0 +1,44 @@
+<section class="ui-page">
+  <div class="ui-card profile-card">
+    <h2 class="ui-title">My Profile</h2>
+    <p class="ui-subtitle">Manage your account and preferences.</p>
+
+    <div class="ui-form">
+      <div class="ui-field">
+        <label>Username</label>
+        <input [(ngModel)]="editableUser.username" [disabled]="!isEditMode || isSaving" />
+      </div>
+
+      <div class="ui-field">
+        <label>Email</label>
+        <input [(ngModel)]="editableUser.email" [disabled]="!isEditMode || isSaving" />
+      </div>
+
+      <div class="ui-field">
+        <label>Display Name</label>
+        <input [(ngModel)]="editableUser.displayName" [disabled]="!isEditMode || isSaving" />
+      </div>
+
+      <div class="ui-field">
+        <label>Bio</label>
+        <textarea [(ngModel)]="editableUser.bio" [disabled]="!isEditMode || isSaving"></textarea>
+      </div>
+    </div>
+
+    <div class="ui-actions">
+      <button type="button" (click)="toggleProfileEdit()" [disabled]="isSaving">
+        {{ isEditMode ? 'Save' : 'Update' }}
+      </button>
+      <button type="button" class="ui-btn-secondary" (click)="logout()">Logout</button>
+    </div>
+
+    <hr />
+
+    <h3>Statistics</h3>
+    <div class="stats-grid">
+      <p>Total Playlists: {{ stats.totalPlaylists }}</p>
+      <p>Total Favorites: {{ stats.totalFavorites }}</p>
+      <p>Total Listening Minutes: {{ stats.totalListeningMinutes }}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="card shadow-sm" style="width: 420px;">
+    <div class="card-body p-5">
+
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">RevConnect</h2>
+        <p class="text-muted">Sign in to your account</p>
+      </div>
+
+      <!-- LOGIN ERROR -->
+      <div class="alert alert-danger" *ngIf="error && !showForgotPassword">
+        <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+      </div>
+
+      <!-- ================= LOGIN FORM ================= -->
+      <div *ngIf="!showForgotPassword">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Username or Email</label>
+            <input type="text"
+                   class="form-control"
+                   [class.is-invalid]="f['usernameOrEmail'].invalid && f['usernameOrEmail'].touched"
+                   formControlName="usernameOrEmail"
+                   placeholder="Enter username or email"/>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Password</label>
+            <input type="password"
+                   class="form-control"
+                   [class.is-invalid]="f['password'].invalid && f['password'].touched"
+                   formControlName="password"
+                   placeholder="Enter password"/>
+          </div>
+
+          <!-- Forgot Password Link -->
+          <div class="text-end mb-3">
+            <a style="cursor:pointer"
+               class="text-primary"
+               (click)="openForgotPassword()">
+              Forgot Password?
+            </a>
+          </div>
+
+          <button type="submit"
+                  class="btn btn-primary w-100 py-2"
+                  [disabled]="loginForm.invalid || loading">
+
+            <span *ngIf="loading"
+                  class="spinner-border spinner-border-sm me-2"></span>
+
+            {{ loading ? 'Signing in...' : 'Sign In' }}
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- ================= FORGOT PASSWORD ================= -->
+
+      <div *ngIf="showForgotPassword" class="mt-4">
+
+        <hr>
+
+        <h5 class="text-center mb-3">Reset Password</h5>
+
+        <div class="alert alert-success" *ngIf="forgotMessage">
+          {{forgotMessage}}
+        </div>
+
+        <div class="alert alert-danger" *ngIf="forgotError">
+          {{forgotError}}
+        </div>
+
+        <form [formGroup]="forgotForm" (ngSubmit)="resetPassword()">
+
+          <input class="form-control mb-3"
+                 placeholder="Registered Email"
+                 formControlName="email">
+
+          <input type="password"
+                 class="form-control mb-3"
+                 placeholder="New Password"
+                 formControlName="password">
+
+          <button type="submit"
+                  class="btn btn-outline-primary w-100"
+                  [disabled]="forgotLoading">
+
+            <span *ngIf="forgotLoading"
+                  class="spinner-border spinner-border-sm me-2"></span>
+
+            Reset Password
+          </button>
+
+        </form>
+
+        <div class="text-center mt-2">
+          <!-- ✅ FIXED -->
+          <a style="cursor:pointer"
+             (click)="backToLogin()">
+            Back to Login
+          </a>
+        </div>
+
+      </div>
+
+      <hr class="my-4">
+
+      <p class="text-center mb-0">
+        Don't have an account?
+        <a routerLink="/register" class="text-primary fw-semibold">Create one</a>
+      </p>
+
+    </div>
+  </div>
+</div>

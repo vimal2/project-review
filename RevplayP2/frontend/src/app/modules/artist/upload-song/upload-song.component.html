@@ -1,0 +1,42 @@
+<section class="ui-page">
+  <div class="ui-card artist-upload-card">
+    <h2 class="ui-title">Upload Song</h2>
+    <p class="ui-subtitle">Add a new track to your artist catalog.</p>
+
+    <form class="ui-form" [formGroup]="uploadForm" (ngSubmit)="uploadSong()">
+      <div class="ui-field">
+        <label>Title</label>
+        <input type="text" formControlName="title" />
+      </div>
+
+      <div class="ui-field">
+        <label>Genre</label>
+        <input type="text" formControlName="genre" />
+      </div>
+
+      <div class="ui-field">
+        <label>Duration (seconds)</label>
+        <input type="number" formControlName="duration" />
+      </div>
+
+      <div class="ui-field">
+        <label>Visibility</label>
+        <select formControlName="visibility">
+          <option value="PUBLIC">Public</option>
+          <option value="UNLISTED">Unlisted</option>
+        </select>
+      </div>
+
+      <div class="ui-field">
+        <label>Audio File</label>
+        <input type="file" (change)="onFileChange($event)" />
+      </div>
+
+      <div class="ui-actions">
+        <button type="submit">Upload</button>
+      </div>
+    </form>
+
+    <a class="ui-link back-link" routerLink="/artist">Back to Dashboard</a>
+  </div>
+</section>

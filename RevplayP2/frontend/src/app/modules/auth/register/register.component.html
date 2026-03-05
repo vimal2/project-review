@@ -1,0 +1,89 @@
+<section class="ui-page">
+  <div class="ui-card ui-auth-card">
+    <h2 class="ui-title">Register</h2>
+    <p class="ui-subtitle">Create your RevPlay account.</p>
+
+    <form class="ui-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="ui-field">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" />
+        <small
+          class="ui-error"
+          *ngIf="
+            registerForm.get('username')?.invalid &&
+            registerForm.get('username')?.touched
+          "
+        >
+          Username is required
+        </small>
+      </div>
+
+      <div class="ui-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+        <small
+          class="ui-error"
+          *ngIf="
+            registerForm.get('email')?.hasError('required') &&
+            registerForm.get('email')?.touched
+          "
+        >
+          Email is required
+        </small>
+        <small
+          class="ui-error"
+          *ngIf="
+            registerForm.get('email')?.hasError('email') &&
+            registerForm.get('email')?.touched
+          "
+        >
+          Enter a valid email
+        </small>
+      </div>
+
+      <div class="ui-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" />
+        <small
+          class="ui-error"
+          *ngIf="
+            registerForm.get('password')?.hasError('required') &&
+            registerForm.get('password')?.touched
+          "
+        >
+          Password is required
+        </small>
+        <small
+          class="ui-error"
+          *ngIf="
+            registerForm.get('password')?.hasError('minlength') &&
+            registerForm.get('password')?.touched
+          "
+        >
+          Password must be at least 6 characters
+        </small>
+      </div>
+
+      <div class="ui-field">
+        <label for="role">Role</label>
+        <select id="role" formControlName="role">
+          <option value="USER">USER</option>
+          <option value="ARTIST">ARTIST</option>
+        </select>
+      </div>
+
+      <div class="ui-actions">
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Registering...' : 'Register' }}
+        </button>
+      </div>
+    </form>
+
+    <p *ngIf="successMessage" class="ui-message ui-message-success">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="ui-message ui-message-error">{{ errorMessage }}</p>
+    <p class="auth-switch">
+      Already registered?
+      <a class="ui-link" routerLink="/home/login">Login</a>
+    </p>
+  </div>
+</section>
