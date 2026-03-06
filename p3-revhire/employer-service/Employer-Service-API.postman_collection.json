@@ -1,0 +1,216 @@
+{
+  "info": {
+    "name": "Employer Service API",
+    "description": "API collection for RevHire Employer Service - Manages employer company profiles and statistics",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8083",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "123",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "health"]
+        },
+        "description": "Check if the Employer Service is running"
+      }
+    },
+    {
+      "name": "Get Company Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Get the company profile for the authenticated employer"
+      }
+    },
+    {
+      "name": "Update Company Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"Tech Innovations Inc\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"100-500\",\n  \"companyDescription\": \"Leading provider of cloud-based solutions and enterprise software for businesses worldwide\",\n  \"website\": \"https://techinnovations.com\",\n  \"companyLocation\": \"San Francisco, CA\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Update or create the company profile for the authenticated employer"
+      }
+    },
+    {
+      "name": "Get Employer Statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/statistics",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "statistics"]
+        },
+        "description": "Get aggregated statistics for the employer including jobs and applications data"
+      }
+    },
+    {
+      "name": "Update Profile - Minimal Data",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"Startup LLC\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Update company profile with only required fields"
+      }
+    },
+    {
+      "name": "Update Profile - Complete Data",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"Global Enterprise Solutions\",\n  \"industry\": \"Consulting\",\n  \"companySize\": \"5000+\",\n  \"companyDescription\": \"We are a global consulting firm providing strategic advisory, technology implementation, and business transformation services to Fortune 500 companies across multiple industries.\",\n  \"website\": \"https://globalenterprise.com\",\n  \"companyLocation\": \"New York, NY\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Update company profile with all fields populated"
+      }
+    },
+    {
+      "name": "Get Profile - Invalid User ID (Error Test)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "-1",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Test error handling with invalid user ID"
+      }
+    },
+    {
+      "name": "Get Profile - Missing Header (Error Test)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Test error handling when X-User-Id header is missing"
+      }
+    },
+    {
+      "name": "Update Profile - Validation Error Test",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-User-Id",
+            "value": "{{userId}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"A\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/employer/company-profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "employer", "company-profile"]
+        },
+        "description": "Test validation error with company name too short"
+      }
+    }
+  ]
+}

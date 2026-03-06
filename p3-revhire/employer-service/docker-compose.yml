@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # MySQL Database for Employer Service
+  mysql-employer:
+    image: mysql:8.0
+    container_name: revhire-employer-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: revhire_employer_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - employer-db-data:/var/lib/mysql
+      - ./database-setup.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - revhire-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Employer Service Application
+  employer-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: employer-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-employer:3306/revhire_employer_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      mysql-employer:
+        condition: service_healthy
+    networks:
+      - revhire-network
+    restart: unless-stopped
+
+volumes:
+  employer-db-data:
+    driver: local
+
+networks:
+  revhire-network:
+    external: true
