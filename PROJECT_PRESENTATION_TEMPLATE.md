@@ -46,19 +46,19 @@
 
 ---
 
-## Time Allocation (~26 slides)
+## Time Allocation (~25 slides)
 
 | Section | Time | Slides |
 |---------|------|--------|
-| Intro, Team, Effort | 3 min | 1-6 |
-| Core Features Demo | 6-8 min | 7-11 |
-| Technical Standards | 5-6 min | 12-14 |
-| Testing & Docs | 3-4 min | 15-17 |
-| Deployment | 2 min | 18-19 |
-| **Individual Contributions** | **4-6 min** | 20-25 |
-| Q&A | 5-10 min | 26 |
+| Intro & Overview | 2-3 min | 1-4 |
+| Core Features Demo | 6-8 min | 5-9 |
+| Technical Standards | 5-6 min | 10-12 |
+| Testing & Docs | 3-4 min | 13-15 |
+| Deployment | 2 min | 16-17 |
+| **Individual Contributions** | **4-6 min** | 18-24 |
+| Q&A | 5-10 min | 25 |
 
-**Note:** Individual contribution slides ensure each team member speaks and demonstrates their specific work.
+**Note:** Individual contribution slides (18-23) ensure each team member speaks. Slide 24 covers team challenges.
 
 ---
 
@@ -196,95 +196,11 @@
 
 ---
 
-### SLIDE 5: Project Team & Responsibilities (30 seconds)
-
-#### Team Structure: Full Stack Contributors
-
-| Member | Feature Ownership | Additional Responsibility | Key Deliverables |
-|--------|-------------------|---------------------------|------------------|
-| [MEMBER_1] | [USE_CASE_1] - Module A | **Tech Lead** (Architecture, Code Reviews) | [DELIVERABLE_1] |
-| [MEMBER_2] | [USE_CASE_1] - Module B | **DevOps** (CI/CD, AWS Deployment) | [DELIVERABLE_2] |
-| [MEMBER_3] | [USE_CASE_2] - Module A | - | [DELIVERABLE_3] |
-| [MEMBER_4] | [USE_CASE_2] - Module B | - | [DELIVERABLE_4] |
-| [MEMBER_5] | Common Features (Auth) | - | [DELIVERABLE_5] |
-| [MEMBER_6] | Common Features (UI/UX) | - | [DELIVERABLE_6] |
-
-**Note:** All team members contribute as **Full Stack Developers** across frontend (Angular) and backend (Spring Boot). Additional responsibilities are shared among 1-2 members.
-
-#### 4-Member Team Configuration
-
-| Member | Feature Ownership | Additional Responsibility |
-|--------|-------------------|---------------------------|
-| [MEMBER_1] | [USE_CASE_1] Complete | **Tech Lead** |
-| [MEMBER_2] | [USE_CASE_2] Complete | **DevOps** |
-| [MEMBER_3] | Authentication & Security | - |
-| [MEMBER_4] | Common Features & UI | - |
-
-#### 6-Member Team Configuration
-
-| Member | Feature Ownership | Additional Responsibility |
-|--------|-------------------|---------------------------|
-| [MEMBER_1] | [USE_CASE_1] - Create/Read | **Tech Lead** |
-| [MEMBER_2] | [USE_CASE_1] - Update/Delete | **DevOps** |
-| [MEMBER_3] | [USE_CASE_2] - Primary Flow | - |
-| [MEMBER_4] | [USE_CASE_2] - Secondary Flow | - |
-| [MEMBER_5] | Auth & Session Management | - |
-| [MEMBER_6] | Common UI & Error Handling | - |
-
----
-
-### SLIDE 6: Effort Estimate & Actuals (1 minute)
-
-#### Phase 1: Monolithic Application
-
-| Feature/Module | Owner | Estimated (hrs) | Actual (hrs) | Variance | Notes |
-|----------------|-------|-----------------|--------------|----------|-------|
-| Project Setup & Config | [MEMBER] | [X] | | | |
-| Database Design & Entities | [MEMBER] | [X] | | | |
-| [USE_CASE_1] - Backend | [MEMBER] | [X] | | | |
-| [USE_CASE_1] - Frontend | [MEMBER] | [X] | | | |
-| [USE_CASE_2] - Backend | [MEMBER] | [X] | | | |
-| [USE_CASE_2] - Frontend | [MEMBER] | [X] | | | |
-| Authentication (Backend) | [MEMBER] | [X] | | | |
-| Authentication (Frontend) | [MEMBER] | [X] | | | |
-| Common Features | [MEMBER] | [X] | | | |
-| Testing | All | [X] | | | |
-| CI/CD & AWS Deployment | [MEMBER] | [X] | | | |
-| **Total Phase 1** | | **[TOTAL]** | | | |
-
-#### Phase 2: Microservices Migration
-
-| Feature/Module | Owner | Estimated (hrs) | Actual (hrs) | Variance | Notes |
-|----------------|-------|-----------------|--------------|----------|-------|
-| Eureka Server Setup | [MEMBER] | [X] | | | |
-| API Gateway | [MEMBER] | [X] | | | |
-| Auth Service Extraction | [MEMBER] | [X] | | | |
-| [SERVICE_1] Extraction | [MEMBER] | [X] | | | |
-| [SERVICE_2] Extraction | [MEMBER] | [X] | | | |
-| Service Communication (Feign) | All | [X] | | | |
-| Frontend API Updates | [MEMBER] | [X] | | | |
-| Integration Testing | All | [X] | | | |
-| **Total Phase 2** | | **[TOTAL]** | | | |
-
-#### Effort Summary by Member
-
-| Member | Phase 1 (hrs) | Phase 2 (hrs) | Total (hrs) | % Contribution |
-|--------|---------------|---------------|-------------|----------------|
-| [MEMBER_1] | [X] | [X] | [X] | [X]% |
-| [MEMBER_2] | [X] | [X] | [X] | [X]% |
-| [MEMBER_3] | [X] | [X] | [X] | [X]% |
-| [MEMBER_4] | [X] | [X] | [X] | [X]% |
-| [MEMBER_5] | [X] | [X] | [X] | [X]% |
-| [MEMBER_6] | [X] | [X] | [X] | [X]% |
-| **Total** | **[X]** | **[X]** | **[X]** | **100%** |
-
----
-
 ## CORE FEATURES SECTION (40 Points)
 
 ---
 
-### SLIDE 7: Main Use Case 1 - Design (20 Points) (2 minutes)
+### SLIDE 5: Main Use Case 1 - Design (20 Points) (2 minutes)
 
 **Use Case:** [USE_CASE_1_NAME]
 
@@ -320,7 +236,7 @@
 
 ---
 
-### SLIDE 8: Main Use Case 1 - DEMO (3-4 minutes)
+### SLIDE 6: Main Use Case 1 - DEMO (3-4 minutes)
 
 **Live Demo Script:**
 
@@ -338,7 +254,7 @@
 
 ---
 
-### SLIDE 9: Use Case 2 - Design (14 Points) (1-2 minutes)
+### SLIDE 7: Use Case 2 - Design (14 Points) (1-2 minutes)
 
 **Use Case:** [USE_CASE_2_NAME]
 
@@ -374,7 +290,7 @@
 
 ---
 
-### SLIDE 10: Use Case 2 - DEMO (2-3 minutes)
+### SLIDE 8: Use Case 2 - DEMO (2-3 minutes)
 
 **Live Demo Script:**
 
@@ -388,7 +304,7 @@
 
 ---
 
-### SLIDE 11: Common Features (6 Points) (1 minute)
+### SLIDE 9: Common Features (6 Points) (1 minute)
 
 #### Authentication Flow
 
@@ -419,7 +335,7 @@
 
 ---
 
-### SLIDE 12: Code Organization (10 Points) (2 minutes)
+### SLIDE 10: Code Organization (10 Points) (2 minutes)
 
 #### Backend Package Structure
 
@@ -480,7 +396,7 @@ src/app/
 
 ---
 
-### SLIDE 13: Database & Security (15 Points) (2-3 minutes)
+### SLIDE 11: Database & Security (15 Points) (2-3 minutes)
 
 #### Entity Relationship Diagram (ERD)
 
@@ -531,7 +447,7 @@ Request → CORS Filter → JWT Filter → Authentication
 
 ---
 
-### SLIDE 14: UX Design (10 Points) (1-2 minutes)
+### SLIDE 12: UX Design (10 Points) (1-2 minutes)
 
 #### UI/UX Highlights
 
@@ -577,7 +493,7 @@ Request → CORS Filter → JWT Filter → Authentication
 
 ---
 
-### SLIDE 15: Testing (15 Points) (2 minutes)
+### SLIDE 13: Testing (15 Points) (2 minutes)
 
 #### Test Coverage Summary
 
@@ -625,7 +541,7 @@ BUILD SUCCESS
 
 ---
 
-### SLIDE 16: Logging (5 Points) (1 minute)
+### SLIDE 14: Logging (5 Points) (1 minute)
 
 #### Logging Implementation
 
@@ -666,7 +582,7 @@ logging.file.name=logs/application.log
 
 ---
 
-### SLIDE 17: Deliverables (5 Points) (1 minute)
+### SLIDE 15: Deliverables (5 Points) (1 minute)
 
 #### Project Deliverables Checklist
 
@@ -703,7 +619,7 @@ logging.file.name=logs/application.log
 
 ---
 
-### SLIDE 18: Deployment Architecture (2 minutes)
+### SLIDE 16: Deployment Architecture (2 minutes)
 
 #### Phase 1: AWS Deployment with GitHub Actions
 
@@ -751,7 +667,7 @@ logging.file.name=logs/application.log
 
 ---
 
-### SLIDE 19: Development Methodology (1 minute)
+### SLIDE 17: Development Methodology (1 minute)
 
 #### Git Workflow
 
@@ -794,13 +710,13 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-### SLIDE 20-25: Individual Member Contributions
+### SLIDE 18-23: Individual Member Contributions
 
 **Instructions:** Each team member presents their own slide (1-2 min each). This demonstrates individual understanding and contribution.
 
 ---
 
-#### SLIDE 20: [MEMBER_1_NAME] - Contributions
+#### SLIDE 18: [MEMBER_1_NAME] - Contributions
 
 **Feature Ownership:** [FEATURE_NAME]
 **Additional Role:** Tech Lead
@@ -836,7 +752,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-#### SLIDE 21: [MEMBER_2_NAME] - Contributions
+#### SLIDE 19: [MEMBER_2_NAME] - Contributions
 
 **Feature Ownership:** [FEATURE_NAME]
 **Additional Role:** DevOps (CI/CD)
@@ -871,7 +787,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-#### SLIDE 22: [MEMBER_3_NAME] - Contributions
+#### SLIDE 20: [MEMBER_3_NAME] - Contributions
 
 **Feature Ownership:** [FEATURE_NAME]
 
@@ -904,7 +820,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-#### SLIDE 23: [MEMBER_4_NAME] - Contributions
+#### SLIDE 21: [MEMBER_4_NAME] - Contributions
 
 **Feature Ownership:** [FEATURE_NAME]
 
@@ -937,7 +853,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-#### SLIDE 24: [MEMBER_5_NAME] - Contributions (if 5+ member team)
+#### SLIDE 22: [MEMBER_5_NAME] - Contributions (if 5+ member team)
 
 **Feature Ownership:** [FEATURE_NAME]
 
@@ -968,7 +884,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-#### SLIDE 25: [MEMBER_6_NAME] - Contributions (if 6 member team)
+#### SLIDE 23: [MEMBER_6_NAME] - Contributions (if 6 member team)
 
 **Feature Ownership:** [FEATURE_NAME]
 
@@ -999,7 +915,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-### SLIDE 26: Team Challenges & Collective Learnings (1 minute)
+### SLIDE 24: Team Challenges & Collective Learnings (1 minute)
 
 #### Team-Level Challenges
 
@@ -1022,7 +938,7 @@ cd frontend && npm install && npm start  # Port [FRONTEND_PORT]
 
 ---
 
-### SLIDE 27: Q&A (5-10 minutes)
+### SLIDE 25: Q&A (5-10 minutes)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
